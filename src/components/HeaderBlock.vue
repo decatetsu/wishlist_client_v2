@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import VueLogo from '../assets/media/VueLogo.vue';
+import VueLogo from '../assets/media/icons/VueLogo.vue';
 import { Bars3Icon } from '@heroicons/vue/24/solid';
 
 const showBurgerMenu = ref(false);
@@ -28,6 +28,7 @@ function burgerToggle() {
 
 
 <template>
+   <!--TODO: make bottom divider or change app bg color  -->
   <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
