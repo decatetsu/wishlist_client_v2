@@ -28,10 +28,9 @@ function burgerToggle() {
 
 
 <template>
-   <!--TODO: make bottom divider or change app bg color  -->
   <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
+      <div class="flex h-16 items-center justify-between gap-8">
         <div class="md:flex md:items-center md:gap-12">
           <a class="block" href="/">
             <span class="sr-only">Home</span>
@@ -39,9 +38,9 @@ function burgerToggle() {
           </a>
         </div>
         
-        <div class="hidden md:block">
-          <nav aria-label="Site Nav">
-            <ul class="flex items-center gap-6 text-sm">
+        <div class="flex flex-1 items-center justify-end md:justify-between">
+          <nav aria-label="Site Nav" class="hidden md:block">
+            <ul class="flex items-center gap-8 text-sm">
               <li v-for="menuItem in menuItems" :key="menuItem.name">
                 <a
                   class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75" 
@@ -88,3 +87,9 @@ function burgerToggle() {
       </ul>
     </div>
 </template>
+
+<style>
+header {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+</style>
