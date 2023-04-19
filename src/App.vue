@@ -1,11 +1,11 @@
 <script setup>
 import HeaderBlock from './components/HeaderBlock.vue';
-import IntroScreen from './components/IntroScreen.vue';
+import IntroBanner from './components/IntroBanner.vue';
 
 </script>
 
 <template>
   <HeaderBlock />
-  <IntroScreen />
+  <IntroBanner />
 </template>
 
