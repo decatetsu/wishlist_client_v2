@@ -87,9 +87,3 @@ function burgerToggle() {
       </ul>
     </div>
 </template>
-
-<style>
-header {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-}
-</style>
