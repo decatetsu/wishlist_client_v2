@@ -1,11 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import VueLogo from '../assets/media/icons/VueLogo.vue';
 import { Bars3Icon } from '@heroicons/vue/24/solid';
 
+interface MenuItem {
+  name: string;
+  link: string;
+}
+
 const showBurgerMenu = ref(false);
 
-const menuItems = [
+const menuItems: MenuItem[] = [
   {
     name: 'About',
     link: '/',
