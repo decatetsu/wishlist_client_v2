@@ -38,8 +38,8 @@ function burgerToggle() {
           </a>
         </div>
         
-        <div class="flex flex-1 items-center justify-end md:justify-between">
-          <nav aria-label="Site Nav" class="hidden md:block">
+        <div class="hidden md:flex flex-1 items-center justify-end md:justify-between">
+          <nav aria-label="Site Nav" class="">
             <ul class="flex items-center gap-8 text-sm">
               <li v-for="menuItem in menuItems" :key="menuItem.name">
                 <a
@@ -53,7 +53,7 @@ function burgerToggle() {
           </nav>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex sm:items-center sm:gap-4 gap-2 items-end">
           <a class="rounded-md transition bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500" href="/">
             Login
           </a>
