@@ -12,23 +12,22 @@ const showBurgerMenu = ref(false);
 
 const menuItems: MenuItem[] = [
   {
-    name: 'About',
-    link: '/',
+    name: 'Reasons',
+    link: '#reasons-block',
   },
   {
-    name: 'Careers',
-    link: '/',
+    name: 'Features',
+    link: '#features-block',
   },
   {
-    name: 'Storm',
-    link: '/',
+    name: 'FAQ',
+    link: '#faq-block',
   },
 ];
 
 function burgerToggle() {
   showBurgerMenu.value = !showBurgerMenu.value;
 }
-
 </script>
 
 
