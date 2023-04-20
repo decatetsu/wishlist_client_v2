@@ -5,3 +5,8 @@ section.section-border {
     border-top: none;
   }
 }
+
+::selection {
+  background: #00baba;
+  color: #2a2a2a;
+}
