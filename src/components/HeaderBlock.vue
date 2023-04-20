@@ -45,7 +45,7 @@ function burgerToggle() {
         
         <div class="hidden md:flex flex-1 items-center justify-end md:justify-between">
           <nav aria-label="Site Nav" class="">
-            <ul class="flex items-center gap-8 text-sm">
+            <ul class="flex items-center gap-8 text-sm md:text-base">
               <li v-for="menuItem in menuItems" :key="menuItem.name">
                 <a
                   class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75" 
@@ -58,11 +58,11 @@ function burgerToggle() {
           </nav>
         </div>
 
-        <div class="flex sm:items-center sm:gap-4 gap-2 items-end">
-          <a class="rounded-md transition bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500" href="/">
+        <div class="flex sm:items-center sm:gap-4 gap-2 items-end text-sm">
+          <a class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-500" href="/">
             Login
           </a>
-          <a class="rounded-md transition bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75" href="/">
+          <a class="rounded-md transition bg-gray-100 px-5 py-2.5 font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75" href="/">
             Register
           </a>
 
