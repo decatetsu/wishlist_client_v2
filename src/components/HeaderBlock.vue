@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import VueLogo from '../assets/media/icons/VueLogo.vue';
+import giftImage from '../assets/media/icons/gift.png';
 import { Bars3Icon } from '@heroicons/vue/24/solid';
 
 interface MenuItem {
@@ -38,7 +38,7 @@ function burgerToggle() {
         <div class="md:flex md:items-center md:gap-12">
           <a class="block" href="/">
             <span class="sr-only">Home</span>
-            <VueLogo class-name="h-8" />
+            <img class="h-8" :src="giftImage" alt="Gift Icon">
           </a>
         </div>
         
