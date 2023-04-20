@@ -8,23 +8,21 @@ import promoImage from '../assets/media/images/promo.jpg';
       <div class="lg:w-3/5 w-full px-4 sm:py-28 py-16 lg:flex lg:items-center lg:mx-0 mx-auto">
         <div class="md:max-w-xl w-full lg:text-left text-center md:mx-auto lg:mx-0">
           <h1 class="py-2 pb-3 px-4 text-3xl font-extrabold sm:text-5xl text-teal-400 bg-teal-500 rounded-xl bg-opacity-30">
-            Presents those work.
+            Gifts that work.
           </h1>
           <p class="sm:ml-4 mt-4 sm:text-xl/relaxed text-gray-400">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore recusandae nisi 
-            molestiae eveniet animi aut accusantium quia voluptatibus neque, aliquid pariatur 
-            optio amet! Ab quasi sapiente excepturi odio molestias placeat.
+            <u>No more hinting</u> at what you want. Gather all of your wishes into a <u>single wishlist</u> and browse your friends and family's wishes in just a few clicks.
           </p>
 
-          <div class="sm:ml-4 mt-8 flex flex-wrap gap-4 lg:justify-normal justify-center">
+          <div class="sm:ml-4 mt-8 flex flex-wrap gap-4 lg:justify-normal justify-center text-sm">
             <a
-              class="block w-full rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
+              class="block w-full rounded bg-teal-600 px-12 py-3 font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
               href="#"
             >
               Get Started
             </a>
             <a
-              class="block w-full border-gray-700 border-2 rounded px-12 py-3 text-sm font-medium text-white shadow hover:text-white/70 focus:outline-none focus:ring active:text-white/50 sm:w-auto"
+              class="block w-full border-gray-700 border-2 rounded px-12 py-3 font-medium text-white shadow hover:text-white/70 focus:outline-none focus:ring active:text-white/50 sm:w-auto"
               href="#"
             >
               Learn More
