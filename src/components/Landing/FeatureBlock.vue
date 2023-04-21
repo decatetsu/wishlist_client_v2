@@ -1,38 +1,39 @@
 <script setup lang="ts">
-import { RectangleStackIcon } from '@heroicons/vue/24/solid';
+import { RectangleStackIcon, QuestionMarkCircleIcon, LightBulbIcon, ChatBubbleLeftRightIcon } from '@heroicons/vue/24/solid';
+import featImage from '../../assets/media/images/feature-1.png';
+import type { FunctionalComponent } from 'vue';
 
 interface ProblemItem {
   label: string;
   description: string;
+  image: string;
+  icon: FunctionalComponent;
 }
 
 const probItems: ProblemItem[] = [
   {
     label: 'What to give',
-    description: 'If it\'s a person you know well, you\'ve probably already \
-      given them everything you can. If it\'s a new acquaintance, you probably \
-      don\'t know them well enough to give them something decent the first time. \
-      With a wishlist, you can look into a person\'s "desires" and give them exactly \
-      what they want most, given their own budget.',
+    description: 'Explore your friends\' list and find out what they want most. Consider your own budget and order a gift.',
+    image: featImage,
+    icon: QuestionMarkCircleIcon,
   },
   {
     label: 'How to hint',
-    description: 'At least once in your life you have been given something \
-      that you were not satisfied with. Either it was an unwanted gift or something neutral like \
-      alcohol. With a wishlist, your benefactors will be able to see exactly what you want and \
-      make you happy.',
+    description: 'Your friends will be able to see what you want with your list. Finally, you will only receive the gifts you want.',
+    image: featImage,
+    icon: LightBulbIcon,
   },
   {
     label: 'How to collect',
-    description: 'The best way to remember the many things you want to buy someday is to put them \
-      in your wishlist. This applies to people who like to store their wants, monitor them, and, \
-      sooner or later, realize them.',
+    description: 'Collect your desires in lists, add to them, and keep an eye out for discounts. Be aware of the right time to buy.',
+    image: featImage,
+    icon: RectangleStackIcon,
   },
   {
     label: 'How to stay involved',
-    description: 'Gift-giving will become your new hobby, and you\'ll prepare for every holiday with \
-      a wide range of gifts at your fingertips. Your friends will adore you and look forward to \
-      seeing you on holidays.',
+    description: 'Gift-giving will become your new hobby. Your friends will adore you and look forward to seeing you on holidays.',
+    image: featImage,
+    icon: ChatBubbleLeftRightIcon,
   }
 ]
 </script>
@@ -40,12 +41,12 @@ const probItems: ProblemItem[] = [
 <template>
   <section id="features-block" class="bg-gray-900 text-white section-border">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
-      <div class="mx-auto max-w-lg text-center">
-        <h2 class="text-3xl font-bold sm-text-4-xl">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold sm:text-4xl">
           Your calm is our product.
         </h2>
 
-        <p class="mt-4 text-gray-300">
+        <p class="mt-4 text-gray-500 dark:text-gray-400 sm:text-xl">
           The problems that our service solves are basic. We help you 
           get what you really want and give only the gifts your 
           familiars want.
@@ -56,14 +57,19 @@ const probItems: ProblemItem[] = [
         <div
           v-for="probItem in probItems"
           :key="probItem.label"
-          class=" rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-teal-500/10 hover:shadow-teal-500/10"
+          class="flex flex-col rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-teal-500/10 hover:shadow-teal-500/10"
         >
           <div class="flex items-center">
-            <RectangleStackIcon class="h-10 w-10 text-teal-500 bg-white/5 p-2 rounded"/>
+            <component :is="probItem.icon" class="h-10 w-10 text-teal-500 bg-gray-400/5 shadow-sm p-2 rounded"></component>
             <h2 class="ml-2 text-xl font-bold text-white">{{ probItem.label }}</h2>
           </div>
-          <p class="mt-1 text-base text-gray-300">{{ probItem.description }}</p>
-          <!-- TODO: ADD GUIDE IMAGE -->
+          <p class="mt-2 grow text-lg text-gray-300">{{ probItem.description }}</p>
+          <img
+            class="object-cover w-full mt-4 rounded h-64"
+            :src="probItem.image"
+            alt="Feature Image"
+          />
+          <!-- TODO: change images to real demos -->
         </div>
       </div>
     </div>
