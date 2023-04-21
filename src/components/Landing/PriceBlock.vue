@@ -17,7 +17,7 @@ import { CheckCircleIcon } from '@heroicons/vue/24/solid';
       </div>
 
       <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <div class="flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
+        <div class="shadow-lg flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
           <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">Free</h3>
           <div class="py-6 px-4 text-white/80 grow">
             <p class="pb-2 text-base sm:text-lg">
@@ -35,7 +35,7 @@ import { CheckCircleIcon } from '@heroicons/vue/24/solid';
             <div class="text-lg text-white/70">forever</div>
           </div>
         </div>
-        <div class="flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
+        <div class="shadow-lg flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
           <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">Premium</h3>
           <div class="py-6 px-4 text-white/80 grow">
             <p class="pb-2 text-base sm:text-lg">
@@ -56,7 +56,7 @@ import { CheckCircleIcon } from '@heroicons/vue/24/solid';
             <a class="inline-block rounded bg-teal-700 py-2 px-5 hover:bg-teal-600 transition" href="#">Buy</a>
           </div>
         </div>
-        <div class="flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
+        <div class="shadow-lg flex flex-col rounded-xl border border-gray-100 dark:border-gray-800">
           <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">Insider</h3>
           <div class="py-6 px-4 text-white/80 grow">
             <p class="pb-2 text-base sm:text-lg">
