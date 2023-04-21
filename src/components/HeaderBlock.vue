@@ -20,6 +20,10 @@ const menuItems: MenuItem[] = [
     link: '#features-block',
   },
   {
+    name: 'Price',
+    link: '#price-block',
+  },
+  {
     name: 'FAQ',
     link: '#faq-block',
   },

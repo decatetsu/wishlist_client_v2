@@ -3,7 +3,7 @@ import { CheckCircleIcon } from '@heroicons/vue/24/solid';
 </script>
 
 <template>
-  <section id="features-block" class="bg-gray-900 text-white section-border">
+  <section id="price-block" class="bg-gray-900 text-white section-border">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold sm:text-4xl">
