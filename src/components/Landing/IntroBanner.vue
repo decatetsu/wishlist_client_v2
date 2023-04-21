@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import promoImage from '../assets/media/images/promo.jpg';
+import promoImage from '../../assets/media/images/promo.jpg';
 </script>
 
 <template>
