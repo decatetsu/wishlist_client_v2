@@ -3,7 +3,7 @@ import promoImage from '../../assets/media/images/promo.jpg';
 </script>
 
 <template>
-  <section class="bg-white dark:bg-gray-900 section-border lg:relative">
+  <section class="bg-white dark:bg-gray-900 section-border lg:relative transition ease-linear duration-300">
     <div class="max-w-screen-xl flex lg:flex-row flex-col mx-auto">
       <div class="lg:w-3/5 w-full px-4 sm:py-28 py-16 lg:flex lg:items-center lg:mx-0 mx-auto">
         <div class="md:max-w-xl w-full lg:text-left text-center md:mx-auto lg:mx-0">

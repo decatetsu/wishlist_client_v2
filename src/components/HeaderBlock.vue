@@ -49,7 +49,6 @@ function toggleTheme() {
 
 
 <template>
-  <!-- TODO: add smooth transition when switching themes on all sections -->
   <header aria-label="Site Header" class="bg-white dark:bg-gray-900 transition ease-linear duration-300">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-8">
