@@ -6,6 +6,8 @@ interface QuestionItem {
   answer: string;
 }
 
+// TODO: Write more text (at least 5)
+
 const questionItems: QuestionItem[] = [
   {
     question: 'What are collection and wish?',

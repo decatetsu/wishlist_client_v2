@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import giftImage from '../assets/media/icons/gift.png';
 import { Bars3Icon } from '@heroicons/vue/24/solid';
+import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline';
 
 interface MenuItem {
   name: string;
@@ -9,6 +10,7 @@ interface MenuItem {
 }
 
 const showBurgerMenu = ref(false);
+const colorTheme = ref(window.localStorage.getItem('color-theme'));
 
 const menuItems: MenuItem[] = [
   {
@@ -32,10 +34,23 @@ const menuItems: MenuItem[] = [
 function burgerToggle() {
   showBurgerMenu.value = !showBurgerMenu.value;
 }
+
+function toggleTheme() {
+  colorTheme.value = colorTheme.value === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('color-theme', colorTheme.value);
+
+  if (colorTheme.value === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
 </script>
 
 
 <template>
+  <!-- TODO: add smooth transition when switching themes on all sections -->
+  <!-- TODO: add specific styles for light theme -->
   <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-8">
@@ -75,6 +90,13 @@ function burgerToggle() {
           >
             <Bars3Icon class="h-5 w-5" />
           </button>
+          <button
+            @click="toggleTheme"
+            class="hidden md:block text-center p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:text-white dark:hover:text-white/75"
+          >
+            <SunIcon v-if="colorTheme === 'dark'" class="h-5 w-5" />
+            <MoonIcon v-else class="h-5 w-5" />
+          </button>
         </div>
       </div>
     </div>
@@ -90,6 +112,16 @@ function burgerToggle() {
             class="text-white pl-5 py-2 hover:bg-white/70 hover:dark:bg-gray-900 block transition"
           >
             {{ menuItem.name }}
+          </a>
+        </li>
+        <li>
+          <a
+            @click="toggleTheme"
+            class="flex flex-row items-center gap-2 text-white pl-5 py-2 hover:bg-white/70 hover:dark:bg-gray-900 transition"
+          >
+            <SunIcon v-if="colorTheme === 'dark'" class="h-5 w-5 inline-block" />
+            <MoonIcon v-else class="h-5 w-5 inline-block" />
+            Toggle theme
           </a>
         </li>
       </ul>
