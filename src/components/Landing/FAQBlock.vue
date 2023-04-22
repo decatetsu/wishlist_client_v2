@@ -6,13 +6,26 @@ interface QuestionItem {
   answer: string;
 }
 
-// TODO: Write more text (at least 5)
-
 const questionItems: QuestionItem[] = [
   {
-    question: 'What are collection and wish?',
-    answer: 'Text answer',
-  }
+    question: 'What are wish and collection?',
+    answer: 'A wish is an item consisting of a name, a price, an image, a wishrate and a description. \
+      You can either import wishes from websites or create them yourself using the handy modal. Each wish\
+      can have at least one shop integration that allows you to visit the product page with a single click.\n\
+      Collection is a set of wishes used to organize and set some special preferences (such as \
+      collection publicity).',
+  },
+  {
+    question: 'Can I get more features without paying?',
+    answer: 'Yes, of course you can. The service uses a unique level system that allows you to get more \
+      power without paying us. All you need is to buy gifts through integration links. It\'s a kind of referral \
+      system. The more you buy, the higher your level. The higher the level, the more features.',
+  },
+  {
+    question: 'How to add integration that\'s not available?',
+    answer: 'We\'re adding as many integrations as we can, but if your favorite store is not available, you can contact us \
+      and we\'ll add your shop to the waiting list.',
+  },
 ];
 </script>
 
@@ -45,8 +58,12 @@ const questionItems: QuestionItem[] = [
             </span>
           </summary>
 
-          <p class="mt-4 leading-relaxed text-gray-700 dark:text-white/80">
-            {{ questionItem.answer }}
+          <p
+            v-for="(p, index) in questionItem.answer.split('\n')"
+            :key="index"
+            class="mt-2 leading-relaxed text-gray-700 dark:text-white/80"
+          >
+            {{ p }}
           </p>
         </details>
       </div>
