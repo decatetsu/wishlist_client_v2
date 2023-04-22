@@ -2,10 +2,19 @@
   border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+/*
+* CUSTOM SELECTION
+*/
+
 ::selection {
   background: #00baba;
   color: #2a2a2a;
 }
+
+
+/*
+* CUSTOM SCROLLBAR
+*/
 
 body {
   overflow: overlay;
