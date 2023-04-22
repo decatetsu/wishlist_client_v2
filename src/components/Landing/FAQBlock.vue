@@ -33,7 +33,7 @@ const questionItems: QuestionItem[] = [
   <section id="faq-block" class="bg-white dark:bg-gray-900 text-white section-border">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold sm:text-4xl">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
           Frequently asked questions.
         </h2>
 
@@ -42,26 +42,26 @@ const questionItems: QuestionItem[] = [
         </p>
       </div>
 
-      <div class="border border-gray-700 divide-y divide-gray-700 rounded-lg mt-8">
+      <div class="border border-gray-400 dark:border-gray-700 divide-y divide-gray-400 dark:divide-gray-700 rounded-lg mt-8">
         <details
           class="group p-6 [&_summary::-webkit-details-marker]:hidden"
           v-for="questionItem in questionItems"
           :key="questionItem.question"
         >
           <summary class="flex items-center justify-between cursor-pointer">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white/75">
+            <h2 class="text-lg font-medium text-gray-800 dark:text-white/75">
               {{ questionItem.question }}
             </h2>
             <span class="relative ml-1.5 h-6 w-5 flex-shrink-0">
-              <PlusCircleIcon class="absolute inset-0 w-6 h-6 opacity-100 group-open:opacity-0" />
-              <MinusCircleIcon class="absolute inset-0 w-6 h-6 opacity-0 group-open:opacity-100" />
+              <PlusCircleIcon class="absolute inset-0 w-6 h-6 opacity-100 group-open:opacity-0 text-gray-800 dark:text-white/90" />
+              <MinusCircleIcon class="absolute inset-0 w-6 h-6 opacity-0 group-open:opacity-100 text-gray-800 dark:text-white/90" />
             </span>
           </summary>
 
           <p
             v-for="(p, index) in questionItem.answer.split('\n')"
             :key="index"
-            class="mt-2 leading-relaxed text-gray-700 dark:text-white/80"
+            class="mt-2 leading-relaxed text-gray-800 dark:text-white/80"
           >
             {{ p }}
           </p>

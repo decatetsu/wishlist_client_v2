@@ -39,10 +39,10 @@ const probItems: ProblemItem[] = [
 </script>
 
 <template>
-  <section id="features-block" class="bg-gray-900 text-white section-border">
+  <section id="features-block" class="bg-white dark:bg-gray-900 section-border">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold sm:text-4xl">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
           Your calm is our product.
         </h2>
 
@@ -57,13 +57,13 @@ const probItems: ProblemItem[] = [
         <div
           v-for="probItem in probItems"
           :key="probItem.label"
-          class="flex flex-col rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-teal-500/10 hover:shadow-teal-500/10"
+          class="flex flex-col rounded-xl border border-gray-300 dark:border-gray-800 p-8 shadow-xl transition hover:border-teal-500/30 dark:hover:border-teal-500/10 hover:shadow-teal-500/30 dark:hover:shadow-teal-500/10"
         >
           <div class="flex items-center">
-            <component :is="probItem.icon" class="h-10 w-10 text-teal-500 bg-gray-400/5 shadow-sm p-2 rounded"></component>
-            <h2 class="ml-2 text-xl font-bold text-white">{{ probItem.label }}</h2>
+            <component :is="probItem.icon" class="h-10 w-10 text-teal-500 bg-gray-400/10 dark:bg-gray-400/5 shadow-sm p-2 rounded"></component>
+            <h2 class="ml-2 text-xl font-bold text-gray-800/95 dark:text-white">{{ probItem.label }}</h2>
           </div>
-          <p class="mt-2 grow text-lg text-gray-300">{{ probItem.description }}</p>
+          <p class="mt-2 grow text-lg text-gray-800/95 dark:text-gray-300">{{ probItem.description }}</p>
           <img
             class="object-cover w-full mt-4 rounded h-64"
             :src="probItem.image"

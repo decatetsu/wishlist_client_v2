@@ -72,12 +72,12 @@ const subscriptionPlans: SubscriptionPlan[] = [
           :key="subPlan.name"
           class="shadow-lg flex flex-col rounded-xl border border-gray-100 dark:border-gray-800"
         >
-          <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">{{ subPlan.name }}</h3>
-          <div class="py-6 px-4 text-white/80 grow">
-            <p class="pb-2 text-base sm:text-lg">
+          <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-700 dark:bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">{{ subPlan.name }}</h3>
+          <div class="py-6 px-4 grow">
+            <p class="pb-2 text-base sm:text-lg text-gray-800 dark:text-white/80">
               {{ subPlan.description }}
             </p>
-            <ul class="text-sm sm:text-base">
+            <ul class="text-sm sm:text-base text-gray-800 dark:text-white/80">
               <li
                 v-for="(feat, index) in subPlan.features"
                 :key="index"
@@ -88,16 +88,16 @@ const subscriptionPlans: SubscriptionPlan[] = [
               </li>
             </ul>
           </div>
-          <div class="text-center bg-gray-800 text-white/80 rounded-es-lg rounded-ee-lg py-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div class="text-center bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white/80 rounded-es-lg rounded-ee-lg py-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <div>
               <div class="text-3xl font-bold">{{ subPlan.price }}</div>
-              <div v-if="subPlan.priceDescription" class="text-lg text-white/70">
+              <div v-if="subPlan.priceDescription" class="text-lg text-gray-800/90 dark:text-white/70">
                 {{ subPlan.priceDescription }}
               </div>
             </div>
             <a
               v-if="subPlan.orderLink"
-              class="inline-block rounded bg-teal-700 py-2 px-5 hover:bg-teal-600 transition" :href="subPlan.orderLink"
+              class="text-white inline-block rounded bg-teal-700 py-2 px-5 hover:bg-teal-600 transition" :href="subPlan.orderLink"
             >
               Buy
             </a>
