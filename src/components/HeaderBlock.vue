@@ -53,10 +53,10 @@ function toggleTheme() {
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-8">
         <div class="md:flex md:items-center md:gap-12">
-          <a class="block" href="/">
+          <RouterLink class="block" to="/">
             <span class="sr-only">Home</span>
             <img class="h-8" :src="giftImage" alt="Gift Icon">
-          </a>
+          </RouterLink>
         </div>
         
         <div class="hidden md:flex flex-1 items-center justify-end md:justify-between">
@@ -78,9 +78,12 @@ function toggleTheme() {
           <a class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-500" href="/">
             Login
           </a>
-          <a class="rounded-md transition bg-gray-100 px-5 py-2.5 font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75" href="/">
+          <RouterLink
+            class="rounded-md transition bg-gray-100 px-5 py-2.5 font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+            to="/register"
+          >
             Register
-          </a>
+          </RouterLink>
 
           <button
             @click="burgerToggle"
