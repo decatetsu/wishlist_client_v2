@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { GiftIcon } from '@heroicons/vue/24/solid';
 import { useForm, useField, useIsFormValid } from 'vee-validate';
+import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import * as yup from 'yup';
 
 const welcomeHeader = 'Welcome to Wishlist!';
-const welcomeDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vel pariatur deserunt dolor a accusantium tempora hic modi ab explicabo.';
+const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
 
 const validationSchema = yup.object({
   full_name: yup.string().label('Full name').required().min(4).max(40),
@@ -45,7 +46,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
       <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
         <img
           class="absolute inset-0 h-full w-full object-cover opacity-40"
-          src="https://unsplash.com/photos/Lk3niOsNhdE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mjh8fGdpZnR8ZW58MHx8fHwxNjgyMjAyNjgy&force=true&w=1920"
+          :src="giftPromo"
           alt="Night Image"
         />
 
