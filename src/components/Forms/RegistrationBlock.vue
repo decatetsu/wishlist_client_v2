@@ -9,7 +9,8 @@ const welcomeDescription = 'No more hinting at what you want. Gather all of your
 
 const validationSchema = yup.object({
   full_name: yup.string().label('Full name').required().min(4).max(40),
-  username: yup.string().label('Username').required().min(5).max(25),
+  username: yup.string().label('Username').required().min(5).max(25)
+    .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore'),
   email: yup.string().label('Email').required().email().max(70),
   password: yup.string().label('Password').required().min(8).max(32),
   password_confirmation: yup.string().label('Password').required()
@@ -24,7 +25,7 @@ const { errors, handleSubmit } = useForm({
     email: '',
     password: '',
     password_confirmation: '',
-  }
+  },
 });
 
 const isValid = useIsFormValid();
@@ -70,7 +71,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
         aria-label="Main"
         class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
       >
-        <div class="max-w-xl lg:max-w-3xl">
+        <div class="max-w-xl lg:max-w-3xl grow">
           <div class="relative -mt-16 block lg:hidden">
             <RouterLink
               to="/"
