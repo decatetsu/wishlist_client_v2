@@ -1,3 +1,5 @@
+import tailwindForms from '@tailwindcss/forms';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -8,6 +10,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [tailwindForms],
 }
 
