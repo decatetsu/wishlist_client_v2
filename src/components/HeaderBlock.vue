@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import giftImage from '../assets/media/icons/gift.png';
-import { Bars3Icon } from '@heroicons/vue/24/solid';
+import { Bars3Icon, GiftIcon } from '@heroicons/vue/24/solid';
 import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline';
 
 interface MenuItem {
@@ -55,7 +54,7 @@ function toggleTheme() {
         <div class="md:flex md:items-center md:gap-12">
           <RouterLink class="block" to="/">
             <span class="sr-only">Home</span>
-            <img class="h-8" :src="giftImage" alt="Gift Icon">
+            <GiftIcon class="h-8 text-teal-500" />
           </RouterLink>
         </div>
         
