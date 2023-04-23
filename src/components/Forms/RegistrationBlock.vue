@@ -2,19 +2,19 @@
 import { GiftIcon } from '@heroicons/vue/24/solid';
 import { useForm, useField, useIsFormValid } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
-import * as yup from 'yup';
+import { string, ref, object } from 'yup';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
 
-const validationSchema = yup.object({
-  full_name: yup.string().label('Full name').required().min(4).max(40),
-  username: yup.string().label('Username').required().min(5).max(25)
+const validationSchema = object({
+  full_name: string().label('Full name').required().min(4).max(40),
+  username: string().label('Username').required().min(5).max(25)
     .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore'),
-  email: yup.string().label('Email').required().email().max(70),
-  password: yup.string().label('Password').required().min(8).max(32),
-  password_confirmation: yup.string().label('Password').required()
-    .min(8).max(32).oneOf([yup.ref('password')], 'Passwords must match'),
+  email: string().label('Email').required().email().max(70),
+  password: string().label('Password').required().min(8).max(32),
+  password_confirmation: string().label('Password').required()
+    .min(8).max(32).oneOf([ref('password')], 'Passwords must match'),
 });
 
 const { errors, handleSubmit } = useForm({
