@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { GiftIcon } from '@heroicons/vue/24/solid';
-import { useForm, useField, useIsFormValid } from 'vee-validate';
+import { ref } from 'vue';
+import { useIsFormValid, Form, Field, ErrorMessage } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
-import { string, ref, object } from 'yup';
+import { string, ref as yup_ref, object } from 'yup';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
@@ -14,35 +15,21 @@ const validationSchema = object({
   email: string().label('Email').required().email().max(70),
   password: string().label('Password').required().min(8).max(32),
   password_confirmation: string().label('Password').required()
-    .min(8).max(32).oneOf([ref('password')], 'Passwords must match'),
+    .min(8).max(32).oneOf([yup_ref('password')], 'Passwords must match'),
 });
 
-const { errors, handleSubmit } = useForm({
-  validationSchema,
-  initialValues: {
-    full_name: '',
-    username: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-  },
-});
+const full_name = ref('');
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const password_confirmation = ref('');
 
-const isValid = useIsFormValid();
-
-const onSubmit = handleSubmit(values => {
+const onSubmit = (values) => {
   alert(JSON.stringify(values, null, 2));
-});
-
-const { value: full_name } = useField<string>('full_name');
-const { value: username } = useField<string>('username');
-const { value: email } = useField<string>('email');
-const { value: password } = useField<string>('password');
-const { value: password_confirmation } = useField<string>('password_confirmation');
+}
 </script>
 
 <template>
-  <!-- FIXME: (UX) MAKE VALIDATION WORK ONLY WHEN BLUR -->
   <section class="bg-white dark:bg-gray-900">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
       <aside class="relative block h-16 lg:order-last bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -74,7 +61,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
             {{ welcomeDescription }}
           </p>
 
-          <form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6">
+          <Form class="mt-8 grid grid-cols-6 gap-6" @submit="onSubmit" :validation-schema="validationSchema" v-slot="{ meta }">
             <div class="col-span-6 sm:col-span-3">
               <label
                 for="FullName"
@@ -82,15 +69,16 @@ const { value: password_confirmation } = useField<string>('password_confirmation
               >
                 Full Name
               </label>
-              <input
+              <Field
+                :validate-on-blur="true"
                 type="text"
                 id="FullName"
                 name="full_name"
-                placeholder="Dark Vanholme"
                 v-model="full_name"
+                placeholder="Dark Vanholme"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
-              <p class="mt-1 text-red-500 text-xs leading-0">{{ errors.full_name }}</p>
+              <ErrorMessage name="full_name" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
             <div class="col-span-6 sm:col-span-3">
               <label
@@ -99,7 +87,8 @@ const { value: password_confirmation } = useField<string>('password_confirmation
               >
                 Username
               </label>
-              <input
+              <Field
+                :validate-on-blur="true"
                 type="text"
                 id="Username"
                 name="username"
@@ -107,7 +96,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 v-model="username"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
-              <p class="mt-1 text-red-500 text-xs leading-0">{{ errors.username }}</p>
+              <ErrorMessage name="username" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
             <div class="col-span-6">
               <label
@@ -117,7 +106,8 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 Email
               </label>
 
-              <input
+              <Field
+                :validate-on-blur="true"
                 type="email"
                 id="Email"
                 name="email"
@@ -125,7 +115,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 v-model="email"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
-              <p class="mt-1 text-red-500 text-xs leading-0">{{ errors.email }}</p>
+              <ErrorMessage name="email" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
 
             <div class="col-span-6 sm:col-span-3">
@@ -136,14 +126,15 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 Password
               </label>
 
-              <input
+              <Field
+                :validate-on-blur="true"
                 type="password"
                 id="Password"
                 name="password"
                 v-model="password"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
-              <p class="mt-1 text-red-500 text-xs leading-0">{{ errors.password }}</p>
+              <ErrorMessage name="password" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
 
             <div class="col-span-6 sm:col-span-3">
@@ -154,14 +145,15 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 Password Confirmation
               </label>
 
-              <input
+              <Field
+                :validate-on-blur="true"
                 type="password"
                 id="PasswordConfirmation"
                 name="password_confirmation"
                 v-model="password_confirmation"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
-              <p class="mt-1 text-red-500 text-xs leading-0">{{ errors.password_confirmation }}</p>
+              <ErrorMessage name="password_confirmation" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
 
             <div class="col-span-6">
@@ -179,7 +171,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
 
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
-                :disabled="!isValid"
+                :disabled="!meta.valid"
                 class="inline-block shrink-0 rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
               >
                 Create an account
@@ -192,7 +184,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
                 </RouterLink>
               </p>
             </div>
-          </form>
+          </Form>
         </div>
       </main>
     </div>
