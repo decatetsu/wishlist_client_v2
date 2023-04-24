@@ -16,16 +16,16 @@ import promoImage from '../../assets/media/images/promo.jpg';
 
           <div class="sm:ml-4 mt-8 flex flex-wrap gap-4 lg:justify-normal justify-center text-sm">
             <a
-              class="block w-full rounded bg-teal-600 px-12 py-3 font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
+              class="block w-full transition rounded bg-teal-600 px-12 py-3 font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
               href="#"
             >
               Get Started
             </a>
             <a
-              class="block w-full transition border-gray-400 dark:border-gray-700 border-2 rounded px-12 py-3 font-medium text-gray-700 dark:text-white shadow hover:text-gray-700/75 dark:hover:text-white/70 focus:outline-none focus:ring active:text-white/50 sm:w-auto"
+              class="block w-full transition border-gray-300 dark:border-gray-700 border-2 rounded px-12 py-3 font-medium text-gray-700 dark:text-white shadow hover:text-gray-700/75 dark:hover:text-white/70 focus:outline-none focus:ring hover:bg-gray-300 dark:hover:bg-gray-700 active:text-white/50 sm:w-auto"
               href="#"
             >
-              Learn More
+              Learn More  
             </a>
           </div>
         </div>

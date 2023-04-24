@@ -75,7 +75,7 @@ function toggleTheme() {
 
         <div class="flex sm:items-center sm:gap-4 gap-2 items-end text-sm">
           <RouterLink
-            class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-500" href="/"
+            class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-600/75" href="/"
             to="/login"
           >
             Login
