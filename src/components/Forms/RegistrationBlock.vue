@@ -45,51 +45,34 @@ const { value: password_confirmation } = useField<string>('password_confirmation
   <!-- FIXME: (UX) MAKE VALIDATION WORK ONLY WHEN BLUR -->
   <section class="bg-white dark:bg-gray-900">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
-      <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+      <aside class="relative block h-16 lg:order-last bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
         <img
-          class="absolute inset-0 h-full w-full object-cover opacity-40"
+          class="absolute inset-0 h-full w-full object-cover"
           :src="giftPromo"
           alt="Night Image"
         />
-
-        <div class="hidden lg:relative lg:block lg:p-12 bg-black/70">
-          <RouterLink to="/" class="block text-white">
-            <span class="sr-only">Home</span>
-            <GiftIcon class="h-8 sm:h-10 text-teal-400" />
-          </RouterLink>
-
-          <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-            {{ welcomeHeader }}
-          </h2>
-
-          <p class="mt-4 leading-relaxed text-white/90">
-            {{ welcomeDescription }}
-          </p>
-        </div>
-      </section>
+      </aside>
 
       <main
         aria-label="Main"
         class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
       >
         <div class="max-w-xl lg:max-w-3xl grow">
-          <div class="relative -mt-16 block lg:hidden">
-            <RouterLink
-              to="/"
-              class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-teal-600 dark:bg-gray-900 sm:h-20 sm:w-20"
-            >
-              <span class="sr-only">Home</span>
-              <GiftIcon class="h-8 sm:h-10" />
-            </RouterLink>
+          <RouterLink
+            to="/"
+            class="block text-teal-600"
+          >
+            <span class="sr-only">Home</span>
+            <GiftIcon class="h-8 sm:h-10" />
+          </RouterLink>
 
-            <h1 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
-              {{ welcomeHeader }}
-            </h1>
+          <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
+            {{ welcomeHeader }}
+          </h1>
 
-            <p class="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
-              {{ welcomeDescription }}
-            </p>
-          </div>
+          <p class="mt-6 leading-relaxed text-gray-500 dark:text-gray-400">
+            {{ welcomeDescription }}
+          </p>
 
           <form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
@@ -197,7 +180,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
                 :disabled="!isValid"
-                class="inline-block shrink-0 rounded-md border border-teal-600 disabled:border-none bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent dark:hover:bg-transparent dark:hover:bg-teal-700 focus:outline-none focus:ring hover:text-teal-500 dark:hover:text-white disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
+                class="inline-block shrink-0 rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
               >
                 Create an account
               </button>
