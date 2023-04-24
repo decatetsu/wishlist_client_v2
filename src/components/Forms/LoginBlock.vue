@@ -15,7 +15,6 @@ const password = ref('');
 </script>
 
 <template>
-  <!-- FIXME: (UX) MAKE VALIDATION WORK ONLY WHEN BLUR -->
   <section class="bg-white dark:bg-gray-900">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
       <aside class="relative flex h-16 lg:order-last bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6 text-right">
