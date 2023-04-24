@@ -42,6 +42,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
 </script>
 
 <template>
+  <!-- FIXME: (UX) MAKE VALIDATION WORK ONLY WHEN BLUR -->
   <section class="bg-white dark:bg-gray-900">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
       <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -51,7 +52,7 @@ const { value: password_confirmation } = useField<string>('password_confirmation
           alt="Night Image"
         />
 
-        <div class="hidden lg:relative lg:block lg:p-12">
+        <div class="hidden lg:relative lg:block lg:p-12 bg-black/70">
           <RouterLink to="/" class="block text-white">
             <span class="sr-only">Home</span>
             <GiftIcon class="h-8 sm:h-10 text-teal-400" />
