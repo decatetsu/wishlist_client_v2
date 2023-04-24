@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { GiftIcon } from '@heroicons/vue/24/solid';
 import { ref } from 'vue';
-import { useIsFormValid, Form, Field, ErrorMessage } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import { string, ref as yup_ref, object } from 'yup';
 
