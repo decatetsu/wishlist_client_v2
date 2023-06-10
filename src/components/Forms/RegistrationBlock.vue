@@ -5,6 +5,7 @@ import { Form, Field, ErrorMessage } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import { string, ref as yup_ref, object } from 'yup';
 import { useUserStore } from '@/stores/userStore';
+import agent from "@/api/agent.ts";
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
@@ -21,8 +22,12 @@ const userStore = useUserStore();
 const validationSchema = object({
   full_name: string().label('Full name').required().min(4).max(40),
   username: string().label('Username').required().min(5).max(25)
-    .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore'),
-  email: string().label('Email').required().email().max(70),
+    .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore')
+    .test({ name: 'checkUsername', message: 'Username is already taken', test: async (value) =>
+        (value.length < 5 ? true : (await agent.Availability.checkUsername(value)))}),
+  email: string().label('Email').required().email().max(70)
+    .test({ name: 'checkEmail', message: 'Email is already taken', test: async (value) =>
+        (value.length < 5 ? true : (await agent.Availability.checkEmail(value)))}),
   password: string().label('Password').required().min(8).max(32),
   password_confirmation: string().label('Password').required()
     .min(8).max(32).oneOf([yup_ref('password')], 'Passwords must match'),

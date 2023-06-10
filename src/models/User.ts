@@ -11,6 +11,7 @@ export interface PublicUser extends UserFromSearch {
 }
 
 export interface PrivateUser extends PublicUser {
+  id: string;
   email: string;
 }
 
@@ -20,7 +21,8 @@ export interface UserLoginFormValues {
 }
 
 export interface UserLoginResponse extends PrivateUser {
-  access_token: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface UserRegisterFormValues {

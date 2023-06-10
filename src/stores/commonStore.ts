@@ -9,7 +9,7 @@ export const useCommonStore = defineStore('common', {
     token: null,
   }),
   actions: {
-    setToken(token: string | null) {
+    setAccessToken(token: string | null) {
       if (token) window.localStorage.setItem('jwt', token);
       this.token = token;
     }

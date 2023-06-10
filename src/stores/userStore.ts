@@ -18,24 +18,25 @@ export const useUserStore = defineStore('user', {
       const common = useCommonStore();
 
       const user = await agent.Users.login(loginData);
-      const { access_token, ...rest } = user;
+      const { accessToken, refreshToken, ...rest } = user;
       this.user = rest;
-      common.setToken(access_token);
+      common.setAccessToken(accessToken);
       await this.router.push('/app/profile');
     },
 
     async register(registerData: UserRegisterFormValues) {
-      // eslint-disable-next-line no-useless-catch
-      try {
-        await agent.Users.register(registerData);
-      } catch (error) {
-        throw error;
-      }
+      const common = useCommonStore();
+
+      const user = await agent.Users.register(registerData);
+      const { accessToken, refreshToken, ...rest } = user;
+      this.user = rest;
+      common.setAccessToken(accessToken);
+      await this.router.push('/app/profile');
     },
 
     logout() {
       const common = useCommonStore();
-      common.setToken(null);
+      common.setAccessToken(null);
       window.localStorage.removeItem('jwt');
       this.user = null;
       this.router.push('/');
