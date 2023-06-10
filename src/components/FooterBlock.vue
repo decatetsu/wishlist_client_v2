@@ -32,7 +32,7 @@ const menuItems: MenuItem[] = [
     <div class="relative mx-auto max-w-screen-xl px-4 py-16 lg:py-8 sm:px-6 lg:px-8 lg:pt-14">
       <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
         <a
-          class="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-50 dark:bg-gray-700 dark:text-teal-300 dark:hover:bg-gray-600 sm:p-3 lg:p-4"
+          class="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-50 hover:text-black dark:bg-gray-700 dark:text-teal-300 dark:hover:bg-gray-600 sm:p-3 lg:p-4"
           href="#"
         >
           <span class="sr-only">Back to top</span>

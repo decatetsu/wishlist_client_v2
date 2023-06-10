@@ -4,9 +4,19 @@ import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import { string, ref as yup_ref, object } from 'yup';
+import { useUserStore } from '@/stores/userStore';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
+
+const full_name = ref('');
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const password_confirmation = ref('');
+const registrationError= ref<string|null>(null);
+
+const userStore = useUserStore();
 
 const validationSchema = object({
   full_name: string().label('Full name').required().min(4).max(40),
@@ -18,14 +28,16 @@ const validationSchema = object({
     .min(8).max(32).oneOf([yup_ref('password')], 'Passwords must match'),
 });
 
-const full_name = ref('');
-const username = ref('');
-const email = ref('');
-const password = ref('');
-const password_confirmation = ref('');
-
-const onSubmit = (values) => {
-  alert(JSON.stringify(values, null, 2));
+const onSubmit = () => {
+  registrationError.value = null;
+  userStore.register({
+    username: username.value,
+    email: email.value,
+    full_name: full_name.value,
+    password: password.value,
+  }).catch(error => {
+    registrationError.value = error.response.data.message;
+  });
 }
 </script>
 
@@ -168,6 +180,8 @@ const onSubmit = (values) => {
                 >.
               </p>
             </div>
+
+            <div v-if="registrationError" class="col-span-6 mt-1 text-red-500 text-xs leading-0">{{ registrationError }}</div>
 
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button

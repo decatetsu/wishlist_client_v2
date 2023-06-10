@@ -2,16 +2,30 @@
 import { GiftIcon } from '@heroicons/vue/24/solid';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import { ref } from 'vue';
+import { Field, Form, ErrorMessage } from 'vee-validate';
+import { string, object } from 'yup';
+import { useUserStore } from '@/stores/userStore';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
 
-const onSubmit = () => {
-  alert(`${username.value}, ${password.value}`)
-}
-
 const username = ref('');
 const password = ref('');
+const loginError = ref<string|null>(null);
+
+const userStore = useUserStore();
+
+const onSubmit = () => {
+  loginError.value = null;
+  userStore.login({ username: username.value, password: password.value }).catch(error => {
+    loginError.value = 'Invalid username/email or password';
+  });
+}
+
+const validationSchema = object({
+  username: string().label('Username').required().min(4).max(70),
+  password: string().label('Password').required().min(8).max(32),
+});
 </script>
 
 <template>
@@ -45,29 +59,35 @@ const password = ref('');
             {{ welcomeDescription }}
           </p>
 
-          <form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6">
+          <Form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6" v-slot="{ meta }" :validation-schema="validationSchema">
             <div class="col-span-6">
-              <input
+              <Field
                 type="text"
                 id="Username"
                 name="username"
                 placeholder="Enter username or email"
                 v-model="username"
+                :validate-on-blur="true"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
+              <ErrorMessage name="username" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
             <div class="col-span-6">
-              <input
+              <Field
                 type="password"
                 id="Password"
                 name="password"
                 placeholder="Enter password"
                 v-model="password"
+                :validate-on-blur="true"
                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
+              <ErrorMessage name="password" class="mt-1 text-red-500 text-xs leading-0"/>
             </div>
+            <div v-if="loginError" class="col-span-6 mt-1 text-red-500 text-xs leading-0">{{ loginError }}</div>
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
+                :disabled="!meta.valid"
                 class="inline-block shrink-0 rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
               >
                 Sign In
@@ -80,7 +100,7 @@ const password = ref('');
                 </RouterLink>
               </p>
             </div>
-          </form>
+          </Form>
         </div>
       </main>
     </div>
