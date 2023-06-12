@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckCircleIcon } from '@heroicons/vue/24/solid';
+import {CheckCircleIcon} from '@heroicons/vue/24/solid';
 
 interface SubscriptionPlan {
   name: string;
@@ -49,11 +49,12 @@ const subscriptionPlans: SubscriptionPlan[] = [
     priceDescription: 'one-time',
     orderLink: '#',
   },
-]; 
+];
 </script>
 
 <template>
-  <section id="price-block" class="bg-white dark:bg-gray-900 text-white section-border transition ease-linear duration-300">
+  <section id="price-block"
+           class="bg-white dark:bg-gray-900 text-white section-border transition ease-linear duration-300">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
@@ -61,7 +62,7 @@ const subscriptionPlans: SubscriptionPlan[] = [
         </h2>
 
         <p class="mt-4 text-gray-500 dark:text-gray-400 sm:text-xl">
-          The service is free, but you can subscribe to get even more features. All 
+          The service is free, but you can subscribe to get even more features. All
           these features can also be obtained <a href="#" class="underline">by purchasing gifts</a> through our service.
         </p>
       </div>
@@ -72,7 +73,9 @@ const subscriptionPlans: SubscriptionPlan[] = [
           :key="subPlan.name"
           class="shadow-lg flex flex-col rounded-xl border border-gray-100 dark:border-gray-800"
         >
-          <h3 class="text-3xl text-center font-bold text-white/90 bg-teal-700 dark:bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">{{ subPlan.name }}</h3>
+          <h3
+            class="text-3xl text-center font-bold text-white/90 bg-teal-700 dark:bg-teal-800 w-full rounded-ss-lg rounded-se-lg py-3">
+            {{ subPlan.name }}</h3>
           <div class="py-6 px-4 grow">
             <p class="pb-2 text-base sm:text-lg text-gray-800 dark:text-white/80">
               {{ subPlan.description }}
@@ -83,12 +86,13 @@ const subscriptionPlans: SubscriptionPlan[] = [
                 :key="index"
                 class="flex items-center gap-2"
               >
-                <CheckCircleIcon class="h-4 w-4 inline text-teal-500" />
+                <CheckCircleIcon class="h-4 w-4 inline text-teal-500"/>
                 {{ feat }}
               </li>
             </ul>
           </div>
-          <div class="text-center bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white/80 rounded-es-lg rounded-ee-lg py-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div
+            class="text-center bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white/80 rounded-es-lg rounded-ee-lg py-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <div>
               <div class="text-3xl font-bold">{{ subPlan.price }}</div>
               <div v-if="subPlan.priceDescription" class="text-lg text-gray-800/90 dark:text-white/70">
@@ -97,7 +101,8 @@ const subscriptionPlans: SubscriptionPlan[] = [
             </div>
             <a
               v-if="subPlan.orderLink"
-              class="text-white inline-block rounded bg-teal-700 py-2 px-5 hover:bg-teal-600 transition" :href="subPlan.orderLink"
+              class="text-white inline-block rounded bg-teal-700 py-2 px-5 hover:bg-teal-600 transition"
+              :href="subPlan.orderLink"
             >
               Buy
             </a>

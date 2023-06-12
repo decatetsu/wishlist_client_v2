@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { RectangleStackIcon, QuestionMarkCircleIcon, LightBulbIcon, ChatBubbleLeftRightIcon } from '@heroicons/vue/24/solid';
+import {
+  ChatBubbleLeftRightIcon,
+  LightBulbIcon,
+  QuestionMarkCircleIcon,
+  RectangleStackIcon
+} from '@heroicons/vue/24/solid';
 import featImage from '../../assets/media/images/feature-1.png';
-import type { FunctionalComponent } from 'vue';
+import type {FunctionalComponent} from 'vue';
 
 interface ProblemItem {
   label: string;
@@ -47,8 +52,8 @@ const probItems: ProblemItem[] = [
         </h2>
 
         <p class="mt-4 text-gray-500 dark:text-gray-400 sm:text-xl">
-          The problems that our service solves are basic. We help you 
-          get what you really want and give only the gifts your 
+          The problems that our service solves are basic. We help you
+          get what you really want and give only the gifts your
           familiars want.
         </p>
       </div>
@@ -60,7 +65,8 @@ const probItems: ProblemItem[] = [
           class="flex flex-col rounded-xl border border-gray-300 dark:border-gray-800 p-8 shadow-xl transition hover:border-teal-500/30 dark:hover:border-teal-500/10 hover:shadow-teal-500/30 dark:hover:shadow-teal-500/10"
         >
           <div class="flex items-center">
-            <component :is="probItem.icon" class="h-10 w-10 text-teal-500 bg-gray-400/10 dark:bg-gray-400/5 shadow-sm p-2 rounded"></component>
+            <component :is="probItem.icon"
+                       class="h-10 w-10 text-teal-500 bg-gray-400/10 dark:bg-gray-400/5 shadow-sm p-2 rounded"></component>
             <h2 class="ml-2 text-xl font-bold text-gray-800/95 dark:text-white">{{ probItem.label }}</h2>
           </div>
           <p class="mt-2 grow text-lg text-gray-800/95 dark:text-gray-300">{{ probItem.description }}</p>

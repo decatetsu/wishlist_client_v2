@@ -49,7 +49,8 @@ const statItems: StatisticItem[] = [
             <dt class="order-last mt-2 text-lg font-medium text-gray-500 dark:text-gray-400">
               {{ statItem.description }}
             </dt>
-            <dd :class="[{ 'underline underline-offset-4': statItem.link },'text-4xl font-extrabold text-teal-500 dark:text-teal-500/90 md:text-5xl']">
+            <dd
+              :class="[{ 'underline underline-offset-4': statItem.link },'text-4xl font-extrabold text-teal-500 dark:text-teal-500/90 md:text-5xl']">
               <a v-if="statItem.link" :href="statItem.link" target="_blank">{{ statItem.label }}</a>
               <span v-else>{{ statItem.label }}</span>
             </dd>

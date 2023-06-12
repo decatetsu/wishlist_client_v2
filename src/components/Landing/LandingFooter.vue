@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ChevronUpIcon } from '@heroicons/vue/24/solid';
-import giftImage from '../assets/media/icons/gift.png';
+import {ChevronUpIcon} from '@heroicons/vue/24/solid';
 
 interface MenuItem {
   name: string;
@@ -28,7 +27,8 @@ const menuItems: MenuItem[] = [
 </script>
 
 <template>
-  <footer aria-label="Site Footer" class="section-border bg-gray-100 dark:bg-gray-900">
+  <footer aria-label="Site Footer"
+          class="section-border bg-gray-100 dark:bg-gray-900 transition ease-linear duration-300">
     <div class="relative mx-auto max-w-screen-xl px-4 py-16 lg:py-8 sm:px-6 lg:px-8 lg:pt-14">
       <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
         <a
@@ -36,7 +36,7 @@ const menuItems: MenuItem[] = [
           href="#"
         >
           <span class="sr-only">Back to top</span>
-          <ChevronUpIcon class="h-5 w-5" />
+          <ChevronUpIcon class="h-5 w-5"/>
         </a>
       </div>
 
@@ -50,15 +50,15 @@ const menuItems: MenuItem[] = [
 
         <nav aria-label="Footer Nav" class="mt-12 lg:mt-0">
           <ul class="flex flex-wrap justify-center gap-6 md:gap-8 text-sm md:text-base lg:justify-end lg:gap-12">
-              <li v-for="menuItem in menuItems" :key="menuItem.name">
-                <a
-                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" 
-                  :href="menuItem.link"
-                >
-                  {{ menuItem.name }}
-                </a>
-              </li>
-            </ul>
+            <li v-for="menuItem in menuItems" :key="menuItem.name">
+              <a
+                class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                :href="menuItem.link"
+              >
+                {{ menuItem.name }}
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { GiftIcon } from '@heroicons/vue/24/solid';
-import { ref } from 'vue';
-import { Form, Field, ErrorMessage } from 'vee-validate';
+import {GiftIcon} from '@heroicons/vue/24/solid';
+import {ref} from 'vue';
+import {ErrorMessage, Field, Form} from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
-import { string, ref as yup_ref, object } from 'yup';
-import { useUserStore } from '@/stores/userStore';
+import {object, ref as yup_ref, string} from 'yup';
+import {useUserStore} from '@/stores/userStore';
 import agent from "@/api/agent.ts";
 
 const welcomeHeader = 'Welcome to Wishlist!';
@@ -15,7 +15,7 @@ const username = ref('');
 const email = ref('');
 const password = ref('');
 const password_confirmation = ref('');
-const registrationError= ref<string|null>(null);
+const registrationError = ref<string | null>(null);
 
 const userStore = useUserStore();
 
@@ -23,11 +23,15 @@ const validationSchema = object({
   full_name: string().label('Full name').required().min(4).max(40),
   username: string().label('Username').required().min(5).max(25)
     .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore')
-    .test({ name: 'checkUsername', message: 'Username is already taken', test: async (value) =>
-        (value.length < 5 ? true : (await agent.Availability.checkUsername(value)))}),
+    .test({
+      name: 'checkUsername', message: 'Username is already taken', test: async (value) =>
+        (value.length < 5 ? true : (await agent.Availability.checkUsername(value)))
+    }),
   email: string().label('Email').required().email().max(70)
-    .test({ name: 'checkEmail', message: 'Email is already taken', test: async (value) =>
-        (value.length < 5 ? true : (await agent.Availability.checkEmail(value)))}),
+    .test({
+      name: 'checkEmail', message: 'Email is already taken', test: async (value) =>
+        (value.length < 5 ? true : (await agent.Availability.checkEmail(value)))
+    }),
   password: string().label('Password').required().min(8).max(32),
   password_confirmation: string().label('Password').required()
     .min(8).max(32).oneOf([yup_ref('password')], 'Passwords must match'),
@@ -67,7 +71,7 @@ const onSubmit = () => {
             class="block text-teal-600"
           >
             <span class="sr-only">Home</span>
-            <GiftIcon class="h-8 sm:h-10" />
+            <GiftIcon class="h-8 sm:h-10"/>
           </RouterLink>
 
           <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
@@ -78,7 +82,8 @@ const onSubmit = () => {
             {{ welcomeDescription }}
           </p>
 
-          <Form class="mt-8 grid grid-cols-6 gap-6" @submit="onSubmit" :validation-schema="validationSchema" v-slot="{ meta }">
+          <Form class="mt-8 grid grid-cols-6 gap-6" @submit="onSubmit" :validation-schema="validationSchema"
+                v-slot="{ meta }">
             <div class="col-span-6 sm:col-span-3">
               <label
                 for="FullName"
@@ -186,7 +191,10 @@ const onSubmit = () => {
               </p>
             </div>
 
-            <div v-if="registrationError" class="col-span-6 mt-1 text-red-500 text-xs leading-0">{{ registrationError }}</div>
+            <div v-if="registrationError" class="col-span-6 mt-1 text-red-500 text-xs leading-0">{{
+                registrationError
+              }}
+            </div>
 
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button

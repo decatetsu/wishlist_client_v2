@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { GiftIcon } from '@heroicons/vue/24/solid';
+import {GiftIcon} from '@heroicons/vue/24/solid';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
-import { ref } from 'vue';
-import { Field, Form, ErrorMessage } from 'vee-validate';
-import { string, object } from 'yup';
-import { useUserStore } from '@/stores/userStore';
+import {ref} from 'vue';
+import {ErrorMessage, Field, Form} from 'vee-validate';
+import {object, string} from 'yup';
+import {useUserStore} from '@/stores/userStore';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
 
 const username = ref('');
 const password = ref('');
-const loginError = ref<string|null>(null);
+const loginError = ref<string | null>(null);
 
 const userStore = useUserStore();
 
 const onSubmit = () => {
   loginError.value = null;
-  userStore.login({ username: username.value, password: password.value }).catch(error => {
+  userStore.login({username: username.value, password: password.value}).catch(error => {
     loginError.value = 'Invalid username/email or password';
   });
 }
@@ -48,7 +48,7 @@ const validationSchema = object({
             class="block text-teal-600"
           >
             <span class="sr-only">Home</span>
-            <GiftIcon class="h-8 sm:h-10" />
+            <GiftIcon class="h-8 sm:h-10"/>
           </RouterLink>
 
           <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
@@ -59,7 +59,8 @@ const validationSchema = object({
             {{ welcomeDescription }}
           </p>
 
-          <Form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6" v-slot="{ meta }" :validation-schema="validationSchema">
+          <Form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6" v-slot="{ meta }"
+                :validation-schema="validationSchema">
             <div class="col-span-6">
               <Field
                 type="text"

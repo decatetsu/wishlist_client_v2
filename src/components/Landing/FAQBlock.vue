@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/vue/24/outline';
+import {MinusCircleIcon, PlusCircleIcon} from '@heroicons/vue/24/outline';
 
 interface QuestionItem {
   question: string;
@@ -30,7 +30,8 @@ const questionItems: QuestionItem[] = [
 </script>
 
 <template>
-  <section id="faq-block" class="bg-white dark:bg-gray-900 text-white section-border transition ease-linear duration-300">
+  <section id="faq-block"
+           class="bg-white dark:bg-gray-900 text-white section-border transition ease-linear duration-300">
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
@@ -42,7 +43,8 @@ const questionItems: QuestionItem[] = [
         </p>
       </div>
 
-      <div class="border border-gray-400 dark:border-gray-700 divide-y divide-gray-400 dark:divide-gray-700 rounded-lg mt-8">
+      <div
+        class="border border-gray-400 dark:border-gray-700 divide-y divide-gray-400 dark:divide-gray-700 rounded-lg mt-8">
         <details
           class="group p-6 [&_summary::-webkit-details-marker]:hidden"
           v-for="questionItem in questionItems"
@@ -53,8 +55,10 @@ const questionItems: QuestionItem[] = [
               {{ questionItem.question }}
             </h2>
             <span class="relative ml-1.5 h-6 w-5 flex-shrink-0">
-              <PlusCircleIcon class="absolute inset-0 w-6 h-6 opacity-100 group-open:opacity-0 text-gray-800 dark:text-white/90" />
-              <MinusCircleIcon class="absolute inset-0 w-6 h-6 opacity-0 group-open:opacity-100 text-gray-800 dark:text-white/90" />
+              <PlusCircleIcon
+                class="absolute inset-0 w-6 h-6 opacity-100 group-open:opacity-0 text-gray-800 dark:text-white/90"/>
+              <MinusCircleIcon
+                class="absolute inset-0 w-6 h-6 opacity-0 group-open:opacity-100 text-gray-800 dark:text-white/90"/>
             </span>
           </summary>
 

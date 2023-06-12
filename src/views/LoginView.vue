@@ -3,5 +3,5 @@ import LoginBlock from '@/components/Forms/LoginBlock.vue';
 </script>
 
 <template>
-  <LoginBlock />
+  <LoginBlock/>
 </template>

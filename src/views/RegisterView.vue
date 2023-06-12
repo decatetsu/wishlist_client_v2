@@ -3,5 +3,5 @@ import RegistrationBlock from '@/components/Forms/RegistrationBlock.vue';
 </script>
 
 <template>
-  <RegistrationBlock />
+  <RegistrationBlock/>
 </template>
