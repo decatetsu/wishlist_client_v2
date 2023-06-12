@@ -1,11 +1,8 @@
 <script setup>
 import {GiftIcon} from '@heroicons/vue/24/solid';
-import {MoonIcon, SunIcon} from '@heroicons/vue/24/outline';
 import SearchBar from '@/components/App/Header/SearchBar.vue';
-import {useCommonStore} from '@/stores/commonStore';
 import UserDropdown from "@/components/App/Header/UserDropdown.vue";
 
-const commonStore = useCommonStore();
 const user = {
   username: 'username',
   avatar: null,
@@ -29,13 +26,6 @@ const user = {
 
         <div class="flex sm:items-center sm:gap-4 gap-2 items-end text-sm">
           <UserDropdown :avatar="user.avatar" :username="user.username" />
-          <button
-            @click="commonStore.toggleTheme"
-            class="hidden md:block text-center p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:text-white dark:hover:text-white/75"
-          >
-            <SunIcon v-if="commonStore.theme === 'dark'" class="h-5 w-5"/>
-            <MoonIcon v-else class="h-5 w-5"/>
-          </button>
         </div>
       </div>
     </div>
