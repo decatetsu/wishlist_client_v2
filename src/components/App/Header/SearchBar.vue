@@ -12,6 +12,7 @@ const searchActive = ref(false);
     <input
       @focus="searchActive = true"
       @blur="searchActive = false"
+      tabindex="1"
       type="text"
       id="searchBar"
       placeholder="Search users..."

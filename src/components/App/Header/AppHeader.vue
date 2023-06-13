@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import SearchBar from '@/components/App/Header/SearchBar.vue';
 import UserDropdown from "@/components/App/Header/UserDropdown.vue";
 
-const user = {
-  username: 'username',
-  avatar: null,
-};
+defineProps<{
+  avatar: Nullable<string>;
+  username: string;
+}>();
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const user = {
         </div>
 
         <div class="flex sm:items-center sm:gap-4 gap-2 items-end text-sm">
-          <UserDropdown :avatar="user.avatar" :username="user.username"/>
+          <UserDropdown :avatar="avatar" :username="username"/>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import type { MenuItem } from '@/interfaces/MenuItem.ts';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { ref } from 'vue';
 import { ROUTES } from '@/utils/constants/routes.constants.ts';
-import defaultProfilePicture from '@/assets/media/images/default-profile-picture.jpg'
+
 
 defineProps<{
   username: string;
@@ -17,12 +17,16 @@ const menuItems: MenuItem[] = [
     link: ROUTES.HOME_PATH,
   },
   {
+    name: 'My profile',
+    link: ROUTES.PROFILE_PATH,
+  },
+  {
     name: 'Settings',
     link: ROUTES.SETTINGS_PATH,
   },
   {
     name: 'Logout',
-    link: ROUTES.LOGOUT_PATH
+    link: ROUTES.LOGOUT_PATH,
   },
 ];
 
@@ -38,27 +42,24 @@ function dropdownBlur() {
 <template>
   <div class="relative">
     <div
-      class="inline-flex items-center overflow-hidden bg-white dark:bg-gray-900">
-      <RouterLink
-        :to="ROUTES.PROFILE_PATH"
-        class="flex text-gray-50 dark:text-gray-300 gap-2 hover:bg-gray-800/60 py-1 px-3 rounded-md"
+      @click="toggleDropdown"
+      @blur="dropdownBlur"
+      tabindex="2"
+      class="inline-flex items-center overflow-hidden bg-white dark:bg-gray-900 hover:dark:bg-gray-800/70 rounded-md cursor-pointer select-none">
+      <div
+        class="flex text-gray-50 dark:text-gray-300 gap-2 py-1 pr-1 pl-3"
       >
         <span class="text-sm">username</span>
-        <img :src="defaultProfilePicture" alt="avatar" class="w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600">
-      </RouterLink>
+        <img :src="avatar" alt="avatar" class="w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600">
+      </div>
 
-      <button
-        @click="toggleDropdown"
-        @blur="dropdownBlur"
-        id="userDropdown"
-        class="h-full p-2 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400"
-      >
+      <div class="h-full p-2 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400">
         <span class="sr-only">Menu</span>
         <ChevronDownIcon
           class="h-3.5 w-3.5 transition ease-linear duration-150"
           :class="{ 'rotate-180': dropdownOpen }"
         />
-      </button>
+      </div>
     </div>
 
     <div
