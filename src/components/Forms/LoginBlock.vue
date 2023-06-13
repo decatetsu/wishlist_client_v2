@@ -59,7 +59,7 @@ const validationSchema = object({
             {{ welcomeDescription }}
           </p>
 
-          <Form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6" v-slot="{ meta }"
+          <Form @submit="onSubmit" class="mt-8 grid grid-cols-6 gap-6" v-slot="{ meta, isSubmitting }"
                 :validation-schema="validationSchema">
             <div class="col-span-6">
               <Field
@@ -90,6 +90,7 @@ const validationSchema = object({
               <button
                 :disabled="!meta.valid"
                 class="inline-block shrink-0 rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
+                :class="{ 'animate-pulse': isSubmitting }"
               >
                 Sign In
               </button>
