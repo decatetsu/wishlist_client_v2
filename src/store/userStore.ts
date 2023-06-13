@@ -1,11 +1,11 @@
-import agent from '@/api/agent';
+import agent from '@/services/agent';
 import type {PrivateUser, UserLoginFormValues, UserRegisterFormValues} from '@/models/User';
 import {defineStore} from 'pinia';
 import {useCommonStore} from './commonStore';
 import type {Router} from 'vue-router';
 
 export interface UserStoreState {
-  user: PrivateUser | null,
+  user: Nullable<PrivateUser>,
   router: Router,
 }
 
@@ -34,12 +34,12 @@ export const useUserStore = defineStore('user', {
       await this.router.push('/app/profile');
     },
 
-    logout() {
+    async logout() {
       const common = useCommonStore();
       common.setAccessToken(null);
       window.localStorage.removeItem('jwt');
       this.user = null;
-      this.router.push('/');
+      await this.router.push('/');
     }
   }
 });

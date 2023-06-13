@@ -2,25 +2,26 @@
 import type {MenuItem} from "@/interfaces/MenuItem.ts";
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { ref} from "vue";
+import {ROUTES} from "@/utils/constants/routes.constants.ts";
 
 defineProps<{
   username: string;
-  avatar: string|null;
+  avatar: Nullable<string>;
 }>();
 
 const dropdownOpen = ref(false);
 const menuItems: MenuItem[] = [
   {
     name: 'Main page',
-    link: '/'
+    link: ROUTES.HOME_PATH,
   },
   {
     name: 'Settings',
-    link: '/app/settings'
+    link: ROUTES.SETTINGS_PATH,
   },
   {
     name: 'Logout',
-    link: '/app/logout'
+    link: ROUTES.LOGOUT_PATH
   }
 ];
 
@@ -37,7 +38,7 @@ function dropdownBlur() {
   <div class="relative">
     <div class="inline-flex items-center overflow-hidden rounded-md border bg-white dark:border-gray-800 dark:bg-gray-900">
       <RouterLink
-        to="/app/profile"
+        :to="ROUTES.PROFILE_PATH"
         class="border-e px-4 py-2 text-sm/none text-gray-800 hover:bg-gray-50 dark:border-e-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200"
       >
         {{username}}

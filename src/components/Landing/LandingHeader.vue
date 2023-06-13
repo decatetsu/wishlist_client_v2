@@ -2,8 +2,9 @@
 import {ref} from 'vue';
 import {Bars3Icon, GiftIcon} from '@heroicons/vue/24/solid';
 import {MoonIcon, SunIcon} from '@heroicons/vue/24/outline';
-import {useCommonStore} from "@/stores/commonStore.ts";
+import {useCommonStore} from "@/store/commonStore.ts";
 import type {MenuItem} from "@/interfaces/MenuItem.ts";
+import {ROUTES} from "@/utils/constants/routes.constants.ts";
 
 const showBurgerMenu = ref(false);
 const commonStore = useCommonStore();
@@ -38,7 +39,7 @@ function burgerToggle() {
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-8">
         <div class="md:flex md:items-center md:gap-12">
-          <RouterLink class="block" to="/">
+          <RouterLink class="block" :to="ROUTES.HOME_PATH">
             <span class="sr-only">Home</span>
             <GiftIcon class="h-8 text-teal-500"/>
           </RouterLink>
@@ -63,7 +64,7 @@ function burgerToggle() {
           <RouterLink
             v-if="commonStore.token !== null"
             class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-600/75"
-            to="/app/profile"
+            :to="ROUTES.PROFILE_PATH"
           >
             Open app
           </RouterLink>
@@ -71,13 +72,13 @@ function burgerToggle() {
             <RouterLink
               class="rounded-md transition bg-teal-600 px-5 py-2.5 font-medium text-white shadow dark:hover:bg-teal-600/75"
               href="/"
-              to="/login"
+              :to="ROUTES.LOGIN_PATH"
             >
               Login
             </RouterLink>
             <RouterLink
               class="rounded-md transition bg-gray-100 px-5 py-2.5 font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-              to="/register"
+              :to="ROUTES.REGISTER_PATH"
             >
               Register
             </RouterLink>

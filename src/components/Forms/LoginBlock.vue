@@ -4,20 +4,21 @@ import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import {ref} from 'vue';
 import {ErrorMessage, Field, Form} from 'vee-validate';
 import {object, string} from 'yup';
-import {useUserStore} from '@/stores/userStore';
+import {useUserStore} from '@/store/userStore';
+import {ROUTES} from "@/utils/constants/routes.constants.ts";
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
 
 const username = ref('');
 const password = ref('');
-const loginError = ref<string | null>(null);
+const loginError = ref<Nullable<string>>(null);
 
 const userStore = useUserStore();
 
 const onSubmit = () => {
   loginError.value = null;
-  userStore.login({username: username.value, password: password.value}).catch(error => {
+  userStore.login({username: username.value, password: password.value}).catch(() => {
     loginError.value = 'Invalid username/email or password';
   });
 }
@@ -44,7 +45,7 @@ const validationSchema = object({
       >
         <div class="max-w-xl lg:max-w-3xl">
           <RouterLink
-            to="/"
+            :to="ROUTES.HOME_PATH"
             class="block text-teal-600"
           >
             <span class="sr-only">Home</span>
@@ -97,7 +98,7 @@ const validationSchema = object({
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
                 No account?
-                <RouterLink to="/register" class="text-gray-700 underline dark:text-gray-200">
+                <RouterLink :to="ROUTES.REGISTER_PATH" class="text-gray-700 underline dark:text-gray-200">
                   Register
                 </RouterLink>
               </p>

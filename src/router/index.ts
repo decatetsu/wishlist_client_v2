@@ -3,25 +3,26 @@ import Home from '@/views/HomeView.vue';
 import Register from '@/views/RegisterView.vue';
 import Login from '@/views/LoginView.vue';
 import Profile from '@/views/ProfileView.vue';
+import {ROUTES} from "@/utils/constants/routes.constants.ts";
 
 const routes = [
   {
-    path: '/',
+    path: ROUTES.HOME_PATH,
     name: 'Home',
     component: Home,
   },
   {
-    path: '/register',
+    path: ROUTES.REGISTER_PATH,
     name: 'Register',
     component: Register,
   },
   {
-    path: '/login',
+    path: ROUTES.LOGIN_PATH,
     name: 'Login',
     component: Login,
   },
   {
-    path: '/app/profile',
+    path: ROUTES.PROFILE_PATH,
     name: 'Profile',
     component: Profile,
   }

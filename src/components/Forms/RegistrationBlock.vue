@@ -4,8 +4,9 @@ import {ref} from 'vue';
 import {ErrorMessage, Field, Form} from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import {object, ref as yup_ref, string} from 'yup';
-import {useUserStore} from '@/stores/userStore';
-import agent from "@/api/agent.ts";
+import {useUserStore} from '@/store/userStore';
+import agent from "@/services/agent.ts";
+import {ROUTES} from "@/utils/constants/routes.constants.ts";
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
@@ -15,7 +16,7 @@ const username = ref('');
 const email = ref('');
 const password = ref('');
 const password_confirmation = ref('');
-const registrationError = ref<string | null>(null);
+const registrationError = ref<Nullable<string>>(null);
 
 const userStore = useUserStore();
 
@@ -67,7 +68,7 @@ const onSubmit = () => {
       >
         <div class="max-w-xl lg:max-w-3xl grow">
           <RouterLink
-            to="/"
+            :to="ROUTES.HOME_PATH"
             class="block text-teal-600"
           >
             <span class="sr-only">Home</span>
@@ -207,7 +208,7 @@ const onSubmit = () => {
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
                 Already have an account?
-                <RouterLink to="/login" class="text-gray-700 underline dark:text-gray-200">
+                <RouterLink :to="ROUTES.LOGIN_PATH" class="text-gray-700 underline dark:text-gray-200">
                   Log in
                 </RouterLink>
               </p>

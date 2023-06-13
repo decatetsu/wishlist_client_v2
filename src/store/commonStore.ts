@@ -1,8 +1,8 @@
 import {defineStore} from 'pinia';
 
 export interface CommonStoreState {
-  token: string | null;
-  theme: string | null;
+  token: Nullable<string>;
+  theme: Nullable<string>;
 }
 
 export const useCommonStore = defineStore('common', {
@@ -11,7 +11,7 @@ export const useCommonStore = defineStore('common', {
     theme: window.localStorage.getItem('color-theme'),
   }),
   actions: {
-    setAccessToken(token: string | null): void {
+    setAccessToken(token: Nullable<string>): void {
       if (token) window.localStorage.setItem('jwt', token);
       this.token = token;
     },

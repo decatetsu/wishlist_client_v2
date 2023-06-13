@@ -2,6 +2,7 @@
 import {GiftIcon} from '@heroicons/vue/24/solid';
 import SearchBar from '@/components/App/Header/SearchBar.vue';
 import UserDropdown from "@/components/App/Header/UserDropdown.vue";
+import {ROUTES} from "@/utils/constants/routes.constants";
 
 const user = {
   username: 'username',
@@ -14,7 +15,7 @@ const user = {
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-8">
         <div class="md:flex md:items-center md:gap-12">
-          <RouterLink class="block" to="/app/profile">
+          <RouterLink class="block" :to="ROUTES.PROFILE_PATH">
             <span class="sr-only">Home</span>
             <GiftIcon class="h-8 text-teal-500"/>
           </RouterLink>
