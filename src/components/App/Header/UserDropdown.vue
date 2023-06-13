@@ -50,7 +50,7 @@ function dropdownBlur() {
         class="flex text-gray-50 dark:text-gray-300 gap-2 py-1 pr-1 pl-3"
       >
         <span class="text-sm">username</span>
-        <img :src="avatar" alt="avatar" class="w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600">
+        <img :src="avatar" alt="avatar" class="w-6 rounded-full border border-gray-400 dark:border-gray-600 aspect-square object-cover">
       </div>
 
       <div class="h-full p-2 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400">
