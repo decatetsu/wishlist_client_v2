@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { MenuItem } from "@/interfaces/MenuItem.ts";
+import type { MenuItem } from '@/interfaces/MenuItem.ts';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
-import { ref } from "vue";
-import { ROUTES } from "@/utils/constants/routes.constants.ts";
+import { ref } from 'vue';
+import { ROUTES } from '@/utils/constants/routes.constants.ts';
 
 defineProps<{
   username: string;
@@ -36,13 +36,9 @@ function dropdownBlur() {
 
 <template>
   <div class="relative">
-    <div class="inline-flex items-center overflow-hidden rounded-md border bg-white dark:border-gray-800 dark:bg-gray-900">
-      <RouterLink
-        :to="ROUTES.PROFILE_PATH"
-        class="border-e px-4 py-2 text-sm/none text-gray-800 hover:bg-gray-50 dark:border-e-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-      >
-        {{username}}
-      </RouterLink>
+    <div
+      class="inline-flex items-center overflow-hidden rounded-md border bg-white dark:border-gray-800 dark:bg-gray-900">
+      <img :src="defaul" alt="">
 
       <button
         @click="toggleDropdown"
@@ -68,7 +64,7 @@ function dropdownBlur() {
         :key="menuItem.name"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
       >
-        {{menuItem.name}}
+        {{ menuItem.name }}
       </RouterLink>
     </div>
   </div>

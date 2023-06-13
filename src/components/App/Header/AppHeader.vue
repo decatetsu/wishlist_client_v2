@@ -26,7 +26,7 @@ const user = {
         </div>
 
         <div class="flex sm:items-center sm:gap-4 gap-2 items-end text-sm">
-          <UserDropdown :avatar="user.avatar" :username="user.username" />
+          <UserDropdown :avatar="user.avatar" :username="user.username"/>
         </div>
       </div>
     </div>

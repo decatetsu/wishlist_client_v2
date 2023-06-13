@@ -5,8 +5,8 @@ import { ref } from 'vue';
 import { ErrorMessage, Field, Form } from 'vee-validate';
 import { object, string } from 'yup';
 import { useUserStore } from '@/store/userStore';
-import { ROUTES } from "@/utils/constants/routes.constants.ts";
-import { SERVER_RESPONSES } from "@/utils/constants/responses.constants.ts";
+import { ROUTES } from '@/utils/constants/routes.constants.ts';
+import { SERVER_RESPONSES } from '@/utils/constants/responses.constants.ts';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline';
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const searchActive = ref(false);
 </script>

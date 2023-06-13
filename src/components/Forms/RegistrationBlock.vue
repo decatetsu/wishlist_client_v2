@@ -5,9 +5,9 @@ import { ErrorMessage, Field, Form } from 'vee-validate';
 import giftPromo from '../../assets/media/images/reg-promo.jpg';
 import { object, ref as yup_ref, string } from 'yup';
 import { useUserStore } from '@/store/userStore';
-import agent from "@/services/agent.ts";
-import { ROUTES } from "@/utils/constants/routes.constants.ts";
-import { FORM_VALIDATION_ERRORS } from "@/utils/constants/validation.constants.ts";
+import agent from '@/services/agent.ts';
+import { ROUTES } from '@/utils/constants/routes.constants.ts';
+import { FORM_VALIDATION_ERRORS } from '@/utils/constants/validation.constants.ts';
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';

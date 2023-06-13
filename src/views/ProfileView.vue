@@ -4,6 +4,6 @@ import AppFooter from "@/components/App/AppFooter.vue";
 </script>
 
 <template>
-  <AppHeader />
-  <AppFooter />
+  <AppHeader/>
+  <AppFooter/>
 </template>
