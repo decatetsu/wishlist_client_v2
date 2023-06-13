@@ -6,13 +6,13 @@ import {
   RectangleStackIcon
 } from '@heroicons/vue/24/solid';
 import featImage from '../../assets/media/images/feature-1.png';
-import type {FunctionalComponent} from 'vue';
+import type { Component } from 'vue';
 
 interface ProblemItem {
   label: string;
   description: string;
   image: string;
-  icon: FunctionalComponent;
+  icon: Component;
 }
 
 const probItems: ProblemItem[] = [
