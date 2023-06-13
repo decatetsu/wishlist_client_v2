@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia';
+import { defineStore } from 'pinia';
 
 export interface CommonStoreState {
   token: Nullable<string>;

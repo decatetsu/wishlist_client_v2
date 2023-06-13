@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import {Bars3Icon, GiftIcon} from '@heroicons/vue/24/solid';
-import {MoonIcon, SunIcon} from '@heroicons/vue/24/outline';
-import {useCommonStore} from "@/store/commonStore.ts";
-import type {MenuItem} from "@/interfaces/MenuItem.ts";
-import {ROUTES} from "@/utils/constants/routes.constants.ts";
+import { ref } from 'vue';
+import { Bars3Icon, GiftIcon } from '@heroicons/vue/24/solid';
+import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline';
+import { useCommonStore } from "@/store/commonStore.ts";
+import type { MenuItem } from "@/interfaces/MenuItem.ts";
+import { ROUTES } from "@/utils/constants/routes.constants.ts";
 
 const showBurgerMenu = ref(false);
 const commonStore = useCommonStore();

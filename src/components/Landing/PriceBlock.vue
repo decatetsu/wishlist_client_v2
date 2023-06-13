@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {CheckCircleIcon} from '@heroicons/vue/24/solid';
+import { CheckCircleIcon } from '@heroicons/vue/24/solid';
 
 interface SubscriptionPlan {
   name: string;

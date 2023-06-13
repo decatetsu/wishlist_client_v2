@@ -1,8 +1,8 @@
 <script setup>
-import {GiftIcon} from '@heroicons/vue/24/solid';
+import { GiftIcon } from '@heroicons/vue/24/solid';
 import SearchBar from '@/components/App/Header/SearchBar.vue';
 import UserDropdown from "@/components/App/Header/UserDropdown.vue";
-import {ROUTES} from "@/utils/constants/routes.constants";
+import { ROUTES } from "@/utils/constants/routes.constants";
 
 const user = {
   username: 'username',

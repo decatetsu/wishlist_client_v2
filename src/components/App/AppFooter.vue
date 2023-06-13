@@ -30,5 +30,5 @@
   </footer>
 </template>
 <script setup>
-import {ChevronUpIcon} from "@heroicons/vue/24/solid";
+import { ChevronUpIcon } from "@heroicons/vue/24/solid";
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {MinusCircleIcon, PlusCircleIcon} from '@heroicons/vue/24/outline';
+import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/vue/24/outline';
 
 interface QuestionItem {
   question: string;

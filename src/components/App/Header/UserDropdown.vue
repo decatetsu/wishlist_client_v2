@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type {MenuItem} from "@/interfaces/MenuItem.ts";
+import type { MenuItem } from "@/interfaces/MenuItem.ts";
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
-import { ref} from "vue";
-import {ROUTES} from "@/utils/constants/routes.constants.ts";
+import { ref } from "vue";
+import { ROUTES } from "@/utils/constants/routes.constants.ts";
 
 defineProps<{
   username: string;

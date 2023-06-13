@@ -1,8 +1,8 @@
 import agent from '@/services/agent';
-import type {PrivateUser, UserLoginFormValues, UserRegisterFormValues} from '@/models/User';
-import {defineStore} from 'pinia';
-import {useCommonStore} from './commonStore';
-import type {Router} from 'vue-router';
+import type { PrivateUser, UserLoginFormValues, UserRegisterFormValues } from '@/models/User';
+import { defineStore } from 'pinia';
+import { useCommonStore } from './commonStore';
+import type { Router } from 'vue-router';
 
 export interface UserStoreState {
   user: Nullable<PrivateUser>,
@@ -18,7 +18,7 @@ export const useUserStore = defineStore('user', {
       const common = useCommonStore();
 
       const user = await agent.Users.login(loginData);
-      const {accessToken, refreshToken, ...rest} = user;
+      const { accessToken, refreshToken, ...rest } = user;
       this.user = rest;
       common.setAccessToken(accessToken);
       await this.router.push('/app/profile');
@@ -28,7 +28,7 @@ export const useUserStore = defineStore('user', {
       const common = useCommonStore();
 
       const user = await agent.Users.register(registerData);
-      const {accessToken, refreshToken, ...rest} = user;
+      const { accessToken, refreshToken, ...rest } = user;
       this.user = rest;
       common.setAccessToken(accessToken);
       await this.router.push('/app/profile');

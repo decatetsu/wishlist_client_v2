@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ChevronUpIcon} from '@heroicons/vue/24/solid';
+import { ChevronUpIcon } from '@heroicons/vue/24/solid';
 
 interface MenuItem {
   name: string;

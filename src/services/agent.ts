@@ -6,7 +6,7 @@ import type {
   UserLoginResponse,
   UserRegisterFormValues
 } from '@/models/User';
-import axios, {type AxiosResponse} from 'axios';
+import axios, { type AxiosResponse } from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:3000/api';
 

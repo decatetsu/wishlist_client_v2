@@ -1,9 +1,9 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/HomeView.vue';
 import Register from '@/views/RegisterView.vue';
 import Login from '@/views/LoginView.vue';
 import Profile from '@/views/ProfileView.vue';
-import {ROUTES} from "@/utils/constants/routes.constants.ts";
+import { ROUTES } from "@/utils/constants/routes.constants.ts";
 
 const routes = [
   {
