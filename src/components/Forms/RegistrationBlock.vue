@@ -7,6 +7,7 @@ import {object, ref as yup_ref, string} from 'yup';
 import {useUserStore} from '@/store/userStore';
 import agent from "@/services/agent.ts";
 import {ROUTES} from "@/utils/constants/routes.constants.ts";
+import {FORM_VALIDATION_ERRORS} from "@/utils/constants/validation.constants.ts";
 
 const welcomeHeader = 'Welcome to Wishlist!';
 const welcomeDescription = 'No more hinting at what you want. Gather all of your wishes into a single wishlist and browse your friends and family\'s wishes in just a few clicks.';
@@ -23,19 +24,19 @@ const userStore = useUserStore();
 const validationSchema = object({
   full_name: string().label('Full name').required().min(4).max(40),
   username: string().label('Username').required().min(5).max(25)
-    .matches(/^[a-z0-9_]+$/, 'Username should include only english lowercase characters, numbers and underscore')
+    .matches(/^[a-z0-9_]+$/, FORM_VALIDATION_ERRORS.USERNAME_PATTERN)
     .test({
-      name: 'checkUsername', message: 'Username is already taken', test: async (value) =>
+      name: 'checkUsername', message: FORM_VALIDATION_ERRORS.USERNAME_NOT_AVAILABLE, test: async (value) =>
         (value.length < 5 ? true : (await agent.Availability.checkUsername(value)))
     }),
   email: string().label('Email').required().email().max(70)
     .test({
-      name: 'checkEmail', message: 'Email is already taken', test: async (value) =>
+      name: 'checkEmail', message: FORM_VALIDATION_ERRORS.EMAIL_NOT_AVAILABLE, test: async (value) =>
         (value.length < 5 ? true : (await agent.Availability.checkEmail(value)))
     }),
   password: string().label('Password').required().min(8).max(32),
   password_confirmation: string().label('Password').required()
-    .min(8).max(32).oneOf([yup_ref('password')], 'Passwords must match'),
+    .min(8).max(32).oneOf([yup_ref('password')], FORM_VALIDATION_ERRORS.PASSWORD_SHOULD_MATCH),
 });
 
 const onSubmit = () => {
