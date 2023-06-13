@@ -3,6 +3,7 @@ import type { MenuItem } from '@/interfaces/MenuItem.ts';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { ref } from 'vue';
 import { ROUTES } from '@/utils/constants/routes.constants.ts';
+import defaultProfilePicture from '@/assets/media/images/default-profile-picture.jpg'
 
 defineProps<{
   username: string;
@@ -37,14 +38,14 @@ function dropdownBlur() {
 <template>
   <div class="relative">
     <div
-      class="inline-flex items-center overflow-hidden rounded-md border bg-white dark:border-gray-800 dark:bg-gray-900">
-      <img :src="defaul" alt="">
+      class="inline-flex items-center overflow-hidden bg-white dark:bg-gray-900">
+      <img :src="defaultProfilePicture" alt="avatar" class="w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600">
 
       <button
         @click="toggleDropdown"
         @blur="dropdownBlur"
         id="userDropdown"
-        class="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+        class="h-full p-2 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400"
       >
         <span class="sr-only">Menu</span>
         <ChevronDownIcon
@@ -56,16 +57,24 @@ function dropdownBlur() {
 
     <div
       v-if="dropdownOpen"
-      class="absolute end-0 z-10 mt-2 p-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
+      class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800"
     >
-      <RouterLink
-        v-for="menuItem in menuItems"
-        :to="menuItem.link"
-        :key="menuItem.name"
-        class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-      >
-        {{ menuItem.name }}
-      </RouterLink>
+      <div class="p-2">
+        <span class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-gray-500 dark:text-gray-400">
+          Signed as {{username}}
+        </span>
+      </div>
+
+      <div class="p-2">
+        <RouterLink
+          v-for="menuItem in menuItems"
+          :to="menuItem.link"
+          :key="menuItem.name"
+          class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+        >
+          {{ menuItem.name }}
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
