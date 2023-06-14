@@ -43,13 +43,12 @@ function dropdownBlur() {
   <div class="relative">
     <div
       @click="toggleDropdown"
-      @blur="dropdownBlur"
       tabindex="2"
-      class="inline-flex items-center overflow-hidden bg-white dark:bg-gray-900 hover:dark:bg-gray-800/70 rounded-md cursor-pointer select-none">
+      class="inline-flex items-center overflow-hidden bg-white dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800/70 rounded-md cursor-pointer select-none">
       <div
-        class="flex text-gray-50 dark:text-gray-300 gap-2 py-1 pr-1 pl-3"
+        class="flex text-gray-900 dark:text-gray-300 gap-2 py-1 pr-1 pl-3"
       >
-        <span class="text-sm">username</span>
+        <span class="text-sm">{{username}}</span>
         <img :src="avatar" alt="avatar" class="w-6 rounded-full border border-gray-400 dark:border-gray-600 aspect-square object-cover">
       </div>
 
@@ -64,6 +63,7 @@ function dropdownBlur() {
 
     <div
       v-if="dropdownOpen"
+      @mouseleave="dropdownBlur"
       class="absolute end-0 z-10 mt-2 p-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
     >
       <RouterLink

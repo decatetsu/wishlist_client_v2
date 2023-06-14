@@ -25,7 +25,17 @@ const routes = [
     path: ROUTES.PROFILE_PATH,
     name: 'Profile',
     component: Profile,
-  }
+  },
+  {
+    path: ROUTES.SETTINGS_PATH,
+    name: 'Settings',
+    component: Home,
+  },
+  {
+    path: ROUTES.LOGOUT_PATH,
+    name: 'Logout',
+    component: Home,
+  },
 ];
 
 const router = createRouter({
