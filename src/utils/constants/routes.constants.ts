@@ -5,4 +5,5 @@ export const ROUTES = {
   PROFILE_PATH: '/app/profile',
   SETTINGS_PATH: '/app/setting',
   LOGOUT_PATH: '/app/logout',
+  USER: '/app/user/',
 };

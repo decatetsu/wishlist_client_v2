@@ -3,6 +3,7 @@ import AppHeader from '@/components/App/Header/AppHeader.vue';
 import AppFooter from "@/components/App/AppFooter.vue";
 import ProfileInfo from "@/components/App/Profile/ProfileInfo.vue";
 import defaultProfilePicture from '@/assets/media/images/default-profile-picture.jpg';
+import CollectionBlock from "@/components/App/Profile/CollectionBlock.vue";
 
 const user = {
   username: 'username',
@@ -21,5 +22,6 @@ const user = {
     :username="user.username"
     :avatar="user.avatar"
   />
+  <CollectionBlock/>
   <AppFooter/>
 </template>
