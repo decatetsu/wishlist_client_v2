@@ -39,7 +39,7 @@ const validationSchema = object({
     .min(8).max(32).oneOf([yup_ref('password')], FORM_VALIDATION_ERRORS.PASSWORD_SHOULD_MATCH),
 });
 
-const onSubmit = () => {
+function onSubmit() {
   registrationError.value = null;
   userStore.register({
     username: username.value,

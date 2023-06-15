@@ -4,6 +4,7 @@ import Register from '@/views/RegisterView.vue';
 import Login from '@/views/LoginView.vue';
 import Profile from '@/views/ProfileView.vue';
 import { ROUTES } from '@/utils/constants/routes.constants.ts';
+import SettingsView from '@/views/SettingsView.vue';
 
 const routes = [
   {
@@ -29,7 +30,7 @@ const routes = [
   {
     path: ROUTES.SETTINGS_PATH,
     name: 'Settings',
-    component: Home,
+    component: SettingsView,
   },
   {
     path: ROUTES.LOGOUT_PATH,
