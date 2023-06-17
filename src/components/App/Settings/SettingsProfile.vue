@@ -10,6 +10,7 @@ import agent from '@/services/agent.ts';
 const defaultUserData = {
   full_name: 'John Pork',
   username: 'username',
+  bio: 'Bio info',
   email: 'username@gmail.com',
 };
 
@@ -17,6 +18,7 @@ const full_name = ref<string>(defaultUserData.full_name);
 const username = ref<string>(defaultUserData.username);
 const email = ref<string>(defaultUserData.email);
 const password = ref<Nullable<string>>(null);
+const bio = ref<string>(defaultUserData.bio);
 const registrationError = ref<Nullable<string>>(null);
 
 const validationSchema = object().shape({
@@ -41,6 +43,10 @@ const validationSchema = object().shape({
           ((value?.length < 5 || value == null) ? true : (await agent.Availability.checkEmail(value)))
       })
   }),
+  bio: string().label('Bio').notRequired().when('bio', {
+    is: (value) => value !== defaultUserData.bio,
+    then: (rule) => rule.min(0).max(64),
+  }),
   password: string().label('Password').nullable().notRequired().when('password', {
     is: (value) => value?.length,
     then: (rule) => rule.min(8).max(32)
@@ -49,7 +55,8 @@ const validationSchema = object().shape({
     ['full_name', 'full_name'],
     ['username', 'username'],
     ['email', 'email'],
-    ['password', 'password']
+    ['bio', 'bio'],
+    ['password', 'password'],
   ]
 );
 
@@ -140,6 +147,26 @@ function onSubmit() {
             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
           />
           <ErrorMessage name="password" class="mt-1 text-red-500 text-xs leading-0"/>
+        </div>
+        <div class="col-span-6">
+          <label
+            for="Bio"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+          >
+            Biography
+          </label>
+
+          <Field
+            :validate-on-blur="true"
+            type="text"
+            as="textarea"
+            id="Bio"
+            name="bio"
+            placeholder="Something about you..."
+            v-model="bio"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+          />
+          <ErrorMessage name="bio" class="mt-1 text-red-500 text-xs leading-0"/>
         </div>
         <div v-if="registrationError" class="col-span-6 mt-1 text-red-500 text-xs leading-0">{{
             registrationError
