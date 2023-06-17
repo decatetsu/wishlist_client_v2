@@ -18,15 +18,15 @@
 </script>
 
 <template>
-  <div class="mx-auto max-w-screen-xl my-4 bg-gray-200 dark:bg-gray-800 lg:rounded-md shadow-lg">
+  <div class="mx-auto max-w-screen-xl my-4 bg-gray-100 dark:bg-gray-800 lg:rounded-md shadow-lg">
     <nav aria-label="Collection Tabs">
-      <ul class="flex border-b border-gray-100 dark:border-gray-700 text-center overflow-x-auto">
+      <ul class="flex border-b border-gray-300 dark:border-gray-700 text-center overflow-x-auto">
         <li
           v-for="(tab, tabIndex) in tabs"
           :key="tabIndex"
-          class="flex-1 border-r border-gray-700 dark:text-gray-400 min-w-fit"
+          class="flex-1 border-r border-gray-300 dark:border-gray-700 dark:text-gray-400 min-w-fit"
           :class="{
-          'bg-gray-700/40 dark:text-white': tabIndex === activeTab,
+          'bg-gray-200 dark:bg-gray-700/40 dark:text-white': tabIndex === activeTab,
           'rounded-tl-md': tabIndex === 0,
           'rounded-tr-md border-none': tabIndex === tabs.length - 1,
         }"

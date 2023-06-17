@@ -51,7 +51,7 @@ function onSubmit() {
           <button
             type="submit"
             :disabled="!meta.valid"
-            class="rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
+            class="rounded-md bg-teal-700 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700/75 dark:hover:bg-teal-700/75 focus:outline-none focus:ring dark:hover:text-white/75 disabled:bg-gray-400/70 dark:disabled:bg-gray-500 hover:disabled:bg-gray-500 dark:hover:disabled:bg-gray-500 disabled:cursor-not-allowed"
             :class="{ 'animate-pulse': isSubmitting }"
           >
             Create
@@ -59,7 +59,7 @@ function onSubmit() {
           <button
             type="button"
             @click="closeModal"
-            class="rounded-md px-12 py-3 text-sm font-medium text-white transition hover:bg-gray-400/50 dark:hover:bg-gray-400/10 border border-gray-500 dark:hover:text-white"
+            class="rounded-md px-12 py-3 text-sm font-medium text-gray-700 dark:text-white transition hover:bg-gray-200/50 dark:hover:bg-gray-400/10 border border-gray-300 dark:border-gray-500 dark:hover:text-white"
           >
             Cancel
           </button>

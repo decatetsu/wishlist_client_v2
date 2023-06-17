@@ -15,7 +15,7 @@ defineProps<{
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
             {{header}}
           </h3>
-          <button @click="closeModal" type="button" class="text-gray-400 bg-transparent transition hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+          <button @click="closeModal" type="button" class="text-gray-400 bg-transparent transition hover:bg-gray-200 hover:text-gray-700 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
             <XMarkIcon class="w-5 h-5" />
             <span class="sr-only">Close modal</span>
           </button>

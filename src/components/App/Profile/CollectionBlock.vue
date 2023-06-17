@@ -122,21 +122,21 @@ function toggleShowCreateWishModal() {
     <component v-if="showCreateWishModal" :is="CreateWishModal" v-bind="{ closeModal: () => showCreateWishModal = false }" />
   </Transition>
 
-  <div class="mx-auto max-w-screen-xl my-4 bg-gray-200 dark:bg-gray-800 lg:rounded-md shadow-lg">
+  <div class="mx-auto max-w-screen-xl my-4 bg-gray-100 dark:bg-gray-800 lg:rounded-md shadow-lg">
     <nav aria-label="Collection Tabs">
-      <ul class="flex border-b border-gray-100 dark:border-gray-700 text-center overflow-x-auto">
+      <ul class="flex border-b border-gray-300 dark:border-gray-700 text-center overflow-x-auto">
         <li
           v-for="(coll, collectionIndex) in collections"
           :key="collectionIndex"
-          class="flex-1 border-r border-gray-700 dark:text-gray-400 min-w-fit"
+          class="flex-1 border-r border-gray-300 dark:border-gray-700 dark:text-gray-400 min-w-fit"
           :class="{
-            'bg-gray-700/40 dark:text-white': collectionIndex === activeTab,
+            'bg-gray-200 dark:bg-gray-700/40 dark:text-white': collectionIndex === activeTab,
             'rounded-tl-md': collectionIndex === 0
           }"
         >
           <button
             @click="activeTab = collectionIndex"
-            class="w-full p-4 text-sm font-medium relative"
+            class="w-full p-4 text-sm font-semibold relative"
           >
             {{coll.name}}
           </button>
@@ -152,8 +152,8 @@ function toggleShowCreateWishModal() {
       </ul>
     </nav>
     <div class="px-4 py-8 sm:py-12 sm:px-6 lg:py-12 lg:px-8 relative">
-      <div class="flex absolute top-0 right-0 text-center text-gray-800 dark:text-gray-300 border-l border-b border-gray-700 rounded-bl-md">
-        <div class="flex py-2 px-3 border-r border-gray-700 items-center">
+      <div class="flex absolute top-0 right-0 text-center text-gray-800 dark:text-gray-300 border-l border-b border-gray-300 dark:border-gray-700 rounded-bl-md">
+        <div class="flex py-2 px-3 border-r border-gray-300 dark:border-gray-700 items-center">
           <GiftIcon class="w-4 h-4 mr-1" />
           {{collections[activeTab].wishes.length}}
         </div>
